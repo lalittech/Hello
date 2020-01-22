@@ -1,0 +1,25 @@
+select count(*) from User_Profile_details,DeviceDetails where UserEmailId=EmailId and Age between 20 and 30 and Customer_Id ='T01' and CheckindateTime between '2019-07-02' and '2019-08-02';
+
+
+
+
+
+== setting the primary-key(exist only one in table) of DeviceId==
+
+ alter table Device_Master modify column DeviceId varchar(40) NOT NULL PRIMARY KEY;
+
+== addinf column Id with auto increment and NOt Null and making primary key==
+alter table DeviceId_Conditionid_RulesId_master add column Id INT AUTO_INCREMENT NOT NULL PRIMARY KEY
+
+
+== Creating composite-key using muliple fields in a tables===
+alter table URL_Store_master add  UNIQUE KEY Test(DeviceId,Rule_Id,Condition_Id,Default_Language_Serve);
+
+Note:
+"Test" is name of the Index created 
+
+To roll back above query :
+alter table URL_Store_master drop  INDEX  Test1;
+
+
+alter table URL_Store_master add column Id INT AUTO_INCREMENT NOT NULL PRIMARY KEY

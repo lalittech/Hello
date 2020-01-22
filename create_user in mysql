@@ -1,0 +1,8 @@
+  -----------Create user in mysql----------------
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+FLUSH PRIVILEGES;
+ALTER USER 'wio'@'192.168.30.131' IDENTIFIED WITH mysql_native_password BY 'Python@12qwaszx';
+
+
+SHOW VARIABLES LIKE '%ssl%';

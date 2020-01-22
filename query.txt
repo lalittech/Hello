@@ -1,0 +1,34 @@
+select * FROM DeviceDetails where CheckindateTime NOT IN(SELECT MAX(CheckindateTime) FROM DeviceDetails GROUP BY CheckindateTime,EnddateTime);
+
+SELECT MAX(CheckindateTime) FROM DeviceDetails GROUP BY CheckindateTime,EnddateTime;
+
+// finding duplicate entries
+SELECT DeviceId,CheckindateTime,EnddateTime COUNT(*) as count FROM  DeviceDetails GROUP BY CheckindateTime HAVING COUNT(*)  = 1;
+
+
+
+bitnami password ---JHBWZ3zdIDhT
+
+
+---------------csv backup---------------------- 
+
+SELECT * FROM DeviceDetails INTO OUTFILE '/var/lib/mysql-files/DeviceDeatils.csv' FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n'; 
+or
+SELECT DeviceId,Offer_Date from  Nvalue_Xdays INTO OUTFILE '/var/lib/mysql-files/Offer_Date_master.csv' FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n';
+
+----------------------loading csv into mysql table------------------------
+
+LOAD DATA INFILE '/var/lib/mysql-files/Old_Customer_visit_master.csv'  INTO TABLE Old_Customer_visit_master  FIELDS TERMINATED BY ','  ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
+
+
+
+
+update Device_Master set Device_Address="B-265 First Floor, Okhla Industrial Area, Phase-I, New Delhi, Delhi 110020" where  Customer_ID="T01";
+
+
+
+
+update Device_Master set Device_Address="D-184, Pocket D, Phase I, Okhla Industrial Area, New Delhi, Delhi 110020" where  Customer_ID="A01";
+
+
+update Device_Master set Device_Address="Peninsula Corporate Park, Ganpatrao Kadam Marg, Lower Parel, Mumbai, India" where  Customer_ID="V01";
